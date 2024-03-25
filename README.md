@@ -1,12 +1,10 @@
-# Nome do Projeto
+# Galeria 
 
-Use `npm i` to start the project
-
-Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor.
+Galeria de Imagens com Firebase
 
 ## 🔨 Funcionalidades do projeto
 
-Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor.
+Fazer upload de imagens para a Galeria
 
 ![image](MussumIpsum)
 
@@ -19,6 +17,7 @@ Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo temp
 - TypeScript
 - TailwindCSS
 - ShadcnUI
+- Firebase
 
 ## 📁 Acesso ao projeto
 

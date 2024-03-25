@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@/components/theme-provider";
 
-import Template from "@/components/Template";
+import { Header } from "./components/Header";
 
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Template />
+      <Header />
     </ThemeProvider>
   );
 }
