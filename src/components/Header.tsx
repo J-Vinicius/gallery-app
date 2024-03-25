@@ -25,9 +25,9 @@ export const Header = () => {
             />
           ))}
         </div>
-        <h1 className="text-center">Galeria</h1>
         <ModeToggle />
       </div>
+      <h1 className="text-center">Galeria de Fotos</h1>
     </header>
   );
 };
