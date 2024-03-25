@@ -7,7 +7,6 @@ export const getAll = async () => {
   let list: Photo[] = [];
 
   const imagesFolder = ref(storage, "/images");
-  console.log("Poha");
   const photoList = await listAll(imagesFolder);
 
   for (let i in photoList.items) {

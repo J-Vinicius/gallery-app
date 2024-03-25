@@ -31,7 +31,9 @@ export default function App() {
           ))}
         </Gallery>
       )}
-      {!loading && photos.length === 0 && <h2>Nenhuma imagem!</h2>}
+      {!loading && photos.length === 0 && (
+        <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
+      )}
     </ThemeProvider>
   );
 }
