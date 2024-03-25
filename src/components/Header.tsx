@@ -2,6 +2,7 @@ import { ModeToggle } from "./mode-toggle";
 
 const ferramentas = [
   { ferramenta: "vitejs", link: "https://vitejs.dev/" },
+  { ferramenta: "typescript", link: "https://www.typescriptlang.org/" },
   { ferramenta: "tailwindcss", link: "https://tailwindcss.com/" },
   { ferramenta: "firebase", link: "https://firebase.google.com/" },
 ];
