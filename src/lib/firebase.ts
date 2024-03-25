@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBNzyRytAq0QzAxeEA-Oe8Nu9NdKtIS8Xw",
-  authDomain: "vitetypescriptgallery.firebaseapp.com",
-  projectId: "vitetypescriptgallery",
-  storageBucket: "vitetypescriptgallery.appspot.com",
-  messagingSenderId: "310311366630",
-  appId: "1:310311366630:web:522e67fcf3fa6ecf81f027",
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGESENDERID,
+  appId: process.env.REACT_APP_FIREBASE_APPID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
