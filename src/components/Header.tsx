@@ -20,7 +20,7 @@ export const Header = () => {
             <img
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
               alt={`${ferramenta} logo`}
-              className="cursor-pointer"
+              className="cursor-pointer img"
               onClick={() => handleAbrirLink(link)}
             />
           ))}
