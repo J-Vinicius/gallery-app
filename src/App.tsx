@@ -6,6 +6,9 @@ import { Gallery } from "./components/Gallery";
 import { Photo } from "./types/photo";
 import { SkeletonCard } from "./components/Skeleton";
 import { ImageCard } from "./components/Image";
+import { Label } from "./components/ui/label";
+import { Input } from "./components/ui/input";
+import { Button } from "./components/ui/button";
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -19,15 +22,23 @@ export default function App() {
     };
     getPhotos();
   }, []);
+
+  const handleFormSubmit = () => {};
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />
-      {/* Área de Upload */}
+      <UploadForm onSubmit={handleFormSubmit} />
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
         <Gallery>
           {photos.map((item, i) => (
-            <ImageCard key={i} src={item.url} alt={item.name} name={item.name} />
+            <ImageCard
+              key={i}
+              src={item.url}
+              alt={item.name}
+              name={item.name}
+            />
           ))}
         </Gallery>
       )}
