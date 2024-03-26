@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import { Gallery } from "./components/Gallery";
 import { Photo } from "./types/photo";
 import { SkeletonCard } from "./components/Skeleton";
-import { Image } from "./components/Image";
+import { ImageCard } from "./components/Image";
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function App() {
       {!loading && photos.length > 0 && (
         <Gallery>
           {photos.map((item, i) => (
-            <Image key={i} src={item.url} alt={item.name} />
+            <ImageCard key={i} src={item.url} alt={item.name} name={item.name} />
           ))}
         </Gallery>
       )}
