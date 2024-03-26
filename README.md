@@ -1,6 +1,6 @@
 # Galeria
 
-Galeria de Imagens com Firebase.
+Galeria de Imagens com Firebase. Prática realizada a partir [Galeria de Fotos em React (com Typescript e Firebase) - Projeto 3 - Desafio 5em5 (React)](https://youtu.be/ss4BXa-WfgI) do [Bonieky Lacerda](https://www.youtube.com/@bonieky).
 
 ## 🔨 Funcionalidades do projeto
 
