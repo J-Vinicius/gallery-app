@@ -18,6 +18,7 @@ export const Header = () => {
         <div className="flex gap-2">
           {ferramentas.map(({ ferramenta, link }) => (
             <img
+              key={ferramenta}
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
               alt={`${ferramenta} logo`}
               className="cursor-pointer img"
