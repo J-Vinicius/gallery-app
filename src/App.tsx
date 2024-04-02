@@ -33,9 +33,11 @@ export default function App() {
     const formData = new FormData(e.currentTarget);
     const file = formData.get("image") as File;
     toast({
-      title: `Está merda ${file.name}`,
-      description: `Não está funcionando.`,
+      title: `A imagem: ${file.name}`,
+      description: `Foi salva com sucesso.`,
+      variant: "success",
     });
+    e.currentTarget.reset();
     if (file && file.size > 0) {
       setUploading(true);
       let result = await Photos.insert(file);
@@ -45,6 +47,7 @@ export default function App() {
         toast({
           title: `${result.name}`,
           description: `${result.message}`,
+          variant: "destructive",
         });
       } else {
         let newPhotoList = [...photos];
@@ -63,9 +66,11 @@ export default function App() {
         className="sm:container p-2 items-center space-y-2"
       >
         <Label htmlFor="image">Image</Label>
-        <div className="sm:flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <Input id="image" name="image" type="file" />
-          <Button type="submit">Enviar</Button>
+          <Button type="submit" className="ml-auto">
+            Enviar
+          </Button>
         </div>
         {uploading && "Enviando..."}
       </form>

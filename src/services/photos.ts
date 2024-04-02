@@ -19,7 +19,7 @@ export const getAll = async () => {
 
 export const insert = async (file: File) => {
   if (["image/jpg", "image/jpeg", "image/png"].includes(file.type)) {
-    let newFile = ref(storage, file.name);
+    let newFile = ref(storage, `images/${file.name}`);
 
     let upload = await uploadBytes(newFile, file);
     let photoUrl = await getDownloadURL(upload.ref);
