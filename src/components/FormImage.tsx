@@ -1,4 +1,3 @@
-import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Plus } from "lucide-react";
@@ -25,17 +24,12 @@ export default function FormImage({ submit }: FormImageProps) {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Nova Imagem</SheetTitle>
+          <SheetTitle className="border-none">Nova Imagem</SheetTitle>
         </SheetHeader>
-        <form method="POST" onSubmit={submit}>
-          <Label htmlFor="image">Image</Label>
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <Input id="image" name="image" type="file" />
-          </div>
-          <SheetClose asChild>
-            <Button type="submit" className="ml-auto">
-              Enviar
-            </Button>
+        <form method="POST" onSubmit={submit} className="space-y-4">
+          <Input id="image" name="image" type="file" />
+          <SheetClose asChild className="absolute bottom-3 right-3">
+            <Button type="submit">Enviar</Button>
           </SheetClose>
         </form>
       </SheetContent>
