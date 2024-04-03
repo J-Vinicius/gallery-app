@@ -1,3 +1,4 @@
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@radix-ui/react-tooltip";
 import { ModeToggle } from "./mode-toggle";
 
 const ferramentas = [
@@ -17,17 +18,28 @@ export const Header = () => {
       <ModeToggle />
       <h1 className="text-center">Galeria de Fotos</h1>
       <div className="sm:mt-auto space-y-2 sm:grow">
-        <p className="text-secondary-foreground/80 hidden sm:block">Feito com</p>
+        <p className="text-secondary-foreground/80 hidden sm:block">
+          Feito com
+        </p>
         <div className="flex justify-between items-start gap-4">
           <div className="flex gap-2">
             {ferramentas.map(({ ferramenta, link }) => (
-              <img
-                key={ferramenta}
-                src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
-                alt={`${ferramenta} logo`}
-                className="cursor-pointer img"
-                onClick={() => handleAbrirLink(link)}
-              />
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <img
+                      key={ferramenta}
+                      src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
+                      alt={`${ferramenta} logo`}
+                      className="cursor-pointer img"
+                      onClick={() => handleAbrirLink(link)}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent className="px-3 py-1 bg-background/75 border rounded-md">
+                    <p className="capitalize">{ferramenta}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ))}
           </div>
         </div>
