@@ -99,7 +99,7 @@
     @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
   }
   .img {
-    @apply size-8
+    @apply sm:size-8 size-6
   }
   .gallery {
     @apply sm:container columns-2 sm:columns-3xs gap-2 space-y-2 p-2 mt-4

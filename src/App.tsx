@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <main className="sm:flex">
+      <main className="sm:flex min-h-screen">
         <Header />
         <FormImage submit={handleFormSubmit} />
         {uploading && "Enviando..."}
