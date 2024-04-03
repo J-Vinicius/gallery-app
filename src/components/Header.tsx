@@ -14,10 +14,10 @@ const handleAbrirLink = (link: string) => {
 
 export const Header = () => {
   return (
-    <header className="sticky sm:min-h-screen sm:w-fit p-4 container flex flex-col flex-wrap items-start sm:border-r-2">
+    <header className="sticky sm:min-h-screen sm:w-fit p-4 container flex sm:flex-col flex-row flex-wrap sm:items-start items-center justify-between sm:border-r-2">
       <ModeToggle />
-      <h1 className="text-center sm:text-left">Galeria de Fotos</h1>
-      <div className="sm:mt-auto space-y-2 sm:grow">
+      <h1 className="text-center sm:text-left w-fit">Galeria de Fotos</h1>
+      <div className="sm:mt-auto space-y-2">
         <p className="text-secondary-foreground/80 hidden sm:block">
           Feito com
         </p>
