@@ -57,26 +57,28 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Header />
-      <FormImage submit={handleFormSubmit} />
-      {uploading && "Enviando..."}
-      {loading && <SkeletonCard />}
-      {!loading && photos.length > 0 && (
-        <Gallery>
-          {photos.map((item, i) => (
-            <ImageCard
-              key={i}
-              src={item.url}
-              alt={item.name}
-              name={item.name}
-            />
-          ))}
-        </Gallery>
-      )}
-      {!loading && photos.length === 0 && (
-        <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
-      )}
-      <Toaster />
+      <main className="sm:flex">
+        <Header />
+        <FormImage submit={handleFormSubmit} />
+        {uploading && "Enviando..."}
+        {loading && <SkeletonCard />}
+        {!loading && photos.length > 0 && (
+          <Gallery>
+            {photos.map((item, i) => (
+              <ImageCard
+                key={i}
+                src={item.url}
+                alt={item.name}
+                name={item.name}
+              />
+            ))}
+          </Gallery>
+        )}
+        {!loading && photos.length === 0 && (
+          <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
+        )}
+        <Toaster />
+      </main>
     </ThemeProvider>
   );
 }

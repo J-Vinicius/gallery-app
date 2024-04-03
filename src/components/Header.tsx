@@ -13,7 +13,7 @@ const handleAbrirLink = (link: string) => {
 
 export const Header = () => {
   return (
-    <header className="sm:container flex flex-col gap-4">
+    <header className="sm:w-fit sm:flex-col-reverse container flex flex-col  gap-4">
       <div className="flex justify-between items-center gap-2 p-4">
         <div className="flex gap-2">
           {ferramentas.map(({ ferramenta, link }) => (
@@ -26,8 +26,8 @@ export const Header = () => {
             />
           ))}
         </div>
-        <ModeToggle />
       </div>
+        <ModeToggle />
       <h1 className="text-center">Galeria de Fotos</h1>
     </header>
   );

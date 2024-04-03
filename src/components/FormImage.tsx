@@ -18,7 +18,7 @@ interface FormImageProps {
 export default function FormImage({ submit }: FormImageProps) {
   return (
     <Sheet>
-      <SheetTrigger asChild className="absolute right-4 bottom-4 z-50">
+      <SheetTrigger asChild className="fixed right-4 bottom-4 z-50">
         <Button variant="default" size="circle">
           <Plus />
         </Button>
