@@ -14,9 +14,9 @@ const handleAbrirLink = (link: string) => {
 
 export const Header = () => {
   return (
-    <header className="sticky sm:min-h-screen sm:w-fit p-4 container flex flex-row flex-wrap sm:items-start items-center gap-4 sm:border-r-2">
+    <header className="sticky sm:min-h-screen sm:w-fit p-4 container flex flex-col flex-wrap items-start sm:border-r-2">
       <ModeToggle />
-      <h1 className="text-center">Galeria de Fotos</h1>
+      <h1 className="text-center sm:text-left">Galeria de Fotos</h1>
       <div className="sm:mt-auto space-y-2 sm:grow">
         <p className="text-secondary-foreground/80 hidden sm:block">
           Feito com
@@ -24,11 +24,10 @@ export const Header = () => {
         <div className="flex justify-between items-start gap-4">
           <div className="flex gap-2">
             {ferramentas.map(({ ferramenta, link }) => (
-              <TooltipProvider>
+              <TooltipProvider key={ferramenta}>
                 <Tooltip>
                   <TooltipTrigger>
                     <img
-                      key={ferramenta}
                       src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
                       alt={`${ferramenta} logo`}
                       className="cursor-pointer img"
