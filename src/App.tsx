@@ -9,9 +9,7 @@ import { SkeletonCard } from "./components/Skeleton";
 import { ImageCard } from "./components/Image";
 import { Toaster } from "./components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
-import { Label } from "./components/ui/label";
-import { Input } from "./components/ui/input";
-import { Button } from "./components/ui/button";
+import FormImage from "./components/FormImage";
 
 export default function App() {
   const [uploading, setUploading] = useState(false);
@@ -60,20 +58,8 @@ export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />
-      <form
-        method="POST"
-        onSubmit={handleFormSubmit}
-        className="sm:container p-2 items-center space-y-2"
-      >
-        <Label htmlFor="image">Image</Label>
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Input id="image" name="image" type="file" />
-          <Button type="submit" className="ml-auto">
-            Enviar
-          </Button>
-        </div>
-        {uploading && "Enviando..."}
-      </form>
+      <FormImage submit={handleFormSubmit} />
+      {uploading && "Enviando..."}
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
         <Gallery>
