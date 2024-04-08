@@ -1,48 +1,60 @@
-import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@radix-ui/react-tooltip";
+import { MenuIcon } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import { Button } from "./ui/button";
 
-const ferramentas = [
-  { ferramenta: "vitejs", link: "https://vitejs.dev/" },
-  { ferramenta: "typescript", link: "https://www.typescriptlang.org/" },
-  { ferramenta: "tailwindcss", link: "https://tailwindcss.com/" },
-  { ferramenta: "firebase", link: "https://firebase.google.com/" },
-];
-
-const handleAbrirLink = (link: string) => {
-  window.open(link, "_blank");
-};
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { useMediaQuery } from "@react-hook/media-query";
+import { MadeWith } from "./MadeWith";
+import { Notes } from "./Notes";
 
 export const Header = () => {
-  return (
-    <header className="sticky sm:min-h-screen sm:w-fit p-4 container flex sm:flex-col flex-row flex-wrap sm:items-start items-center justify-between sm:border-r-2">
-      <ModeToggle />
-      <h1 className="text-center sm:text-left w-fit">Galeria de Fotos</h1>
-      <div className="sm:mt-auto space-y-2">
-        <p className="text-secondary-foreground/80 hidden sm:block">
-          Feito com
-        </p>
-        <div className="flex justify-between items-start gap-4">
-          <div className="flex gap-2">
-            {ferramentas.map(({ ferramenta, link }) => (
-              <TooltipProvider key={ferramenta}>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <img
-                      src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${ferramenta}/${ferramenta}-original.svg`}
-                      alt={`${ferramenta} logo`}
-                      className="cursor-pointer img"
-                      onClick={() => handleAbrirLink(link)}
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent className="px-3 py-1 bg-background/75 border rounded-md">
-                    <p className="capitalize">{ferramenta}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </div>
+  const isDesktop = useMediaQuery("(min-width: 640px)");
+
+  if (isDesktop) {
+    return (
+      <header className="min-h-screen w-fit p-4 flex flex-col justify-between border-r-2">
+        <div className="flex flex-row items-center gap-2">
+          <ModeToggle />
+          <h1>PocketAlbum</h1>
         </div>
-      </div>
+        <div className="h-full flex">
+          <Notes />
+        </div>
+        <MadeWith />
+      </header>
+    );
+  }
+  return (
+    <header className="flex items-center justify-between space-x-4 mx-4 mt-4">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon">
+            <MenuIcon />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>Pocket Album</SheetTitle>
+            <SheetDescription>
+              Um cofre de bolso para suas imagens.
+            </SheetDescription>
+          </SheetHeader>
+          <Notes />
+          <SheetFooter className="absolute bottom-4">
+            <MadeWith />
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
+      <h1>PocketAlbum</h1>
+      <ModeToggle />
     </header>
   );
 };
