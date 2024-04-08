@@ -70,10 +70,9 @@ export default function App() {
         variant: "success",
       });
     } catch (error) {
-      console.error("Error deleting image:", error);
       toast({
         title: `Erro ao excluir imagem: ${imageName}`,
-        description: "Ocorreu um erro ao excluir a imagem.",
+        description: `Ocorreu um erro ao excluir a imagem: ${error}`,
         variant: "destructive",
       });
     }
