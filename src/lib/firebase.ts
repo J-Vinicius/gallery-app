@@ -16,3 +16,4 @@ export const storage = getStorage(
   firebaseApp,
   "vitetypescriptgallery.appspot.com"
 );
+
