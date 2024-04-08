@@ -5,6 +5,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -92,7 +93,9 @@ function ProfileForm({ submit }: FormImageProps) {
       <div className="grid gap-2">
         <Input id="image" name="image" type="file" />
       </div>
-      <Button type="submit">Enviar</Button>
+      <DialogClose asChild>
+        <Button type="submit">Enviar</Button>
+      </DialogClose>
     </form>
   );
 }
