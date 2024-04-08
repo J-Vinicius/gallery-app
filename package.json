@@ -1,5 +1,6 @@
 {
-  "name": "gallery",
+  "name": "pocket-album",
+  "description": "A vault for your images",
   "private": true,
   "version": "0.9.0",
   "type": "module",
