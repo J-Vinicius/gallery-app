@@ -24,3 +24,12 @@ Você pode acessar o [código fonte do projeto](https://github.com/J-Vinicius/ga
 ## 📋 Duplicar projeto
 
 `npm i` e crie um banco de dados no [Firebase](https://firebase.google.com/) e adicione váriaveis local.
+
+### Variáveis de exemplo
+
+`REACT_APP_FIREBASE_APIKEY=
+REACT_APP_FIREBASE_AUTHDOMAIN=
+REACT_APP_FIREBASE_PROJECTID=
+REACT_APP_FIREBASE_STORAGEBUCKET=
+REACT_APP_FIREBASE_MESSAGESENDERID=
+REACT_APP_FIREBASE_APPID=`
