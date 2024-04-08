@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
+import { deleteObject, getStorage, ref } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: import.meta.env.REACT_APP_FIREBASE_APIKEY,
@@ -16,4 +16,9 @@ export const storage = getStorage(
   firebaseApp,
   "vitetypescriptgallery.appspot.com"
 );
+
+export async function deleteImage(image: string) {
+  const imageDelete = ref(storage, `images/${image}`);
+  return deleteObject(imageDelete);
+}
 

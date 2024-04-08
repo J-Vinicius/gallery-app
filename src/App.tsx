@@ -10,6 +10,7 @@ import { ImageCard } from "./components/Image";
 import { Toaster } from "./components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import FormImage from "./components/FormImage";
+import { deleteImage } from "./lib/firebase";
 
 export default function App() {
   const [uploading, setUploading] = useState(false);
@@ -24,7 +25,7 @@ export default function App() {
       setLoading(false);
     };
     getPhotos();
-  }, []);
+  }, [toast]);
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,6 +55,29 @@ export default function App() {
       }
     }
   };
+  const handleExclusion = async (imageName: string) => {
+    try {
+      // Call your deleteImage function passing the imageName
+      await deleteImage(imageName);
+
+      // Update the photos state to remove the deleted image
+      const updatedPhotos = photos.filter((photo) => photo.name !== imageName);
+      setPhotos(updatedPhotos);
+
+      toast({
+        title: `Imagem: ${imageName}`,
+        description: "Foi excluída com sucesso!",
+        variant: "success",
+      });
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      toast({
+        title: `Erro ao excluir imagem: ${imageName}`,
+        description: "Ocorreu um erro ao excluir a imagem.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -70,6 +94,9 @@ export default function App() {
                 src={item.url}
                 alt={item.name}
                 name={item.name}
+                deleteImage={() => {
+                  handleExclusion(item.name);
+                }}
               />
             ))}
           </Gallery>
