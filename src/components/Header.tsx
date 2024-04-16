@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/sheet";
 import { useMediaQuery } from "@react-hook/media-query";
 import { MadeWith } from "./MadeWith";
-import { Notes } from "./Notes";
 
 export const Header = () => {
   const isDesktop = useMediaQuery("(min-width: 640px)");
@@ -24,9 +23,6 @@ export const Header = () => {
         <div className="flex flex-row items-center gap-2">
           <ModeToggle />
           <h1>PocketAlbum</h1>
-        </div>
-        <div className="h-full flex">
-          <Notes />
         </div>
         <MadeWith />
       </header>
@@ -47,7 +43,6 @@ export const Header = () => {
               Um cofre de bolso para suas imagens.
             </SheetDescription>
           </SheetHeader>
-          <Notes />
           <SheetFooter className="absolute bottom-4">
             <MadeWith />
           </SheetFooter>
