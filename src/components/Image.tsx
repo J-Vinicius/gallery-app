@@ -1,11 +1,16 @@
-import { Trash } from "lucide-react";
+import { Download, Trash } from "lucide-react";
 import { Button } from "./ui/button";
+import { saveAs } from "file-saver";
 
 type ImageProps = {
   src: string;
   alt: string;
   name: string;
   deleteImage: () => void;
+};
+
+const downloadImage = (image: string) => {
+  saveAs(image, image); // Put your image URL here.
 };
 
 export const ImageCard = ({ src, alt, name, deleteImage }: ImageProps) => {
@@ -20,6 +25,14 @@ export const ImageCard = ({ src, alt, name, deleteImage }: ImageProps) => {
           onClick={() => deleteImage()}
         >
           <Trash />
+        </Button>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="hover:bg-transparent hover:border border-primary absolute top-2 left-2"
+          onClick={() => downloadImage(alt)}
+        >
+          <Download />
         </Button>
         <p className="absolute inset-x-4 bottom-4">{name}</p>
       </figcaption>
