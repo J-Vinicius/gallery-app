@@ -91,7 +91,7 @@ function ProfileForm({ submit }: FormImageProps) {
       className={cn("grid items-start gap-4")}
     >
       <div className="grid gap-2">
-        <Input id="image" name="image" type="file" />
+        <Input id="image" name="image" type="file" className="p-6 border-dashed border-2" />
       </div>
       <DialogClose asChild>
         <Button type="submit">Enviar</Button>

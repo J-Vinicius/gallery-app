@@ -15,7 +15,7 @@ const downloadImage = (image: string) => {
 
 export const ImageCard = ({ src, alt, name, deleteImage }: ImageProps) => {
   return (
-    <figure className="relative group bg-foreground p-6 space-y-2">
+    <figure className="relative group bg-foreground p-4 md:p-6 space-y-2">
       <img src={src} alt={alt} className="object-cover w-full" />
       <figcaption className="text-card">
         <p className="line-clamp-2">{name}</p>

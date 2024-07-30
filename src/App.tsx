@@ -88,9 +88,9 @@ export default function App() {
           className="p-4"
           items={photos}
           config={{
-            columns: [2, 3, 4, 5],
-            gap: [12, 12, 12, 12],
-            media: [420, 640, 768, 1024],
+            columns: [1, 2, 3, 4, 5],
+            gap: [12, 12, 12, 12, 12],
+            media: [420, 540, 640, 840, 1024],
           }}
           render={(item: Photo, i: number) => (
             <ImageCard
