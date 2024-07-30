@@ -9,12 +9,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export const Header = () => {
+export function Header() {
   return (
-    <header className="p-4 border-b">
+    <header className="py-2 border-b">
       <div className="flex flex-row justify-between items-center gap-2 screen">
         <Sheet>
-          <SheetTrigger asChild>
+          <SheetTrigger asChild className="cursor-pointer">
             <h1 className="text-xl font-bold">PocketAlbum</h1>
           </SheetTrigger>
           <SheetContent
@@ -46,4 +46,4 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+}

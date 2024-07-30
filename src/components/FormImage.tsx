@@ -47,7 +47,7 @@ export default function FormImage({ submit }: FormImageProps) {
         <Plus size={24} />
       </DrawerTrigger>
       <DrawerContent>
-        <div className="p-4 pt-0">
+        <div className="p-4 pt-2">
           <ProfileForm submit={submit} />
         </div>
         <DrawerFooter className="pt-0">
@@ -73,7 +73,7 @@ function ProfileForm({ submit }: FormImageProps) {
     >
       <label
         htmlFor="image"
-        className="p-8 border-dashed border-2 rounded place-content-center"
+        className="sm:px-8 sm:py-16 p-8 border-dashed border-2 rounded cursor-pointer place-content-center"
       >
         <div className="flex flex-col justify-center items-center gap-2 group">
           <DeckImages />

@@ -9,6 +9,7 @@ import { Toaster } from "./components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import FormImage from "./components/FormImage";
 import { deleteImage } from "./lib/firebase";
+import { Images } from "lucide-react";
 
 export default function App() {
   const [uploading, setUploading] = useState(false);
@@ -79,7 +80,10 @@ export default function App() {
   return (
     <main className="flex flex-col gap-2 min-h-screen">
       <Header />
-
+      <div className="screen w-full text-secondary-foreground/75 flex items-center justify-end gap-1">
+        <Images size={16} />
+        <small className="font-medium">{photos.length}</small>
+      </div>
       {uploading && "Enviando..."}
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
@@ -99,7 +103,10 @@ export default function App() {
         </section>
       )}
       {!loading && photos.length === 0 && (
-        <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
+        <div>
+          <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
+          <FormImage submit={handleFormSubmit} />
+        </div>
       )}
       <Toaster />
     </main>

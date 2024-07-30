@@ -1,7 +1,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function SkeletonCard() {
-  const items: number[] = [15, 5, 8, 9, 7, 6, 5, 4, 5];
+  const items: number[] = [15, 3, 8, 9, 7, 6, 1, 4, 5];
 
   return (
     <div className="h-[85vh] w-full screen">
