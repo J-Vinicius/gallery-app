@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
+import { DeckImages } from "./DeckImages";
 
 export default function FormImage({ submit }: FormImageProps) {
   const [open, setOpen] = React.useState(false);
@@ -31,7 +32,7 @@ export default function FormImage({ submit }: FormImageProps) {
             <Plus />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-sm">
+        <DialogContent className="sm:max-w-lg">
           <ProfileForm submit={submit} />
         </DialogContent>
       </Dialog>
@@ -72,17 +73,16 @@ function ProfileForm({ submit }: FormImageProps) {
     >
       <label
         htmlFor="image"
-        className="p-6 border-dashed border-2 rounded place-content-center"
+        className="p-8 border-dashed border-2 rounded place-content-center"
       >
         <div className="flex flex-col justify-center items-center gap-2 group">
-          <figure className="relative">
-            <img src="/img.svg" alt="Placeholder Image" className="size-16 absolute group-hover:origin-bottom group-hover:-rotate-12 group-hover:-translate-x-4 group-hover:translate-y-2 transition ease-in-out" />
-            <img src="/img.svg" alt="Placeholder Image" className="size-16 absolute" />
-            <img src="/img.svg" alt="Placeholder Image" className="size-16" />
-          </figure>
-          <h3 className="text-lg font-medium">Nova Imagem</h3>
+          <DeckImages />
+          <h3 className="text-lg font-medium">
+            Arraste sua imagem aqui ou{" "}
+            <span className="text-blue-500">busque</span>.
+          </h3>
           <p className="text-sm text-primary/50">
-            Faça um upload de uma imagem de extensão: jpg, png e jpeg.
+            Extensões suportadas: jpg, png e jpeg.
           </p>
         </div>
         <Input id="image" name="image" type="file" className="hidden" />

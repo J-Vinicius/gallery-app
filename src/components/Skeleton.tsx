@@ -23,7 +23,7 @@ export function SkeletonCard() {
           key={`${i} - ${nada}`}
           className="h-32 flex rounded border justify-center items-center"
         >
-          <Image className="" />
+          <Image />
         </Skeleton>
       )}
     />
