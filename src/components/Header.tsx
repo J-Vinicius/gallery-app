@@ -16,7 +16,7 @@ export const Header = () => {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost">
-              <h1>PocketAlbum</h1>
+              <h1 className="text-xl font-bold">PocketAlbum</h1>
             </Button>
           </SheetTrigger>
           <SheetContent side="left">

@@ -85,7 +85,7 @@ export default function App() {
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
         <Masonry
-          className="p-2"
+          className="p-4"
           items={photos}
           config={{
             columns: [2, 3, 4, 5],
