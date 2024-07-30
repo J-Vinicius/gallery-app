@@ -1,7 +1,5 @@
 import { Info } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
-import { Button } from "./ui/button";
-
 import {
   Sheet,
   SheetContent,
@@ -13,13 +11,11 @@ import {
 
 export const Header = () => {
   return (
-    <header className="p-4">
-      <div className="flex flex-row justify-between items-center gap-2">
+    <header className="p-4 border-b">
+      <div className="flex flex-row justify-between items-center gap-2 screen">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost">
-              <h1 className="text-xl font-bold">PocketAlbum</h1>
-            </Button>
+            <h1 className="text-xl font-bold">PocketAlbum</h1>
           </SheetTrigger>
           <SheetContent
             side="left"
@@ -35,7 +31,7 @@ export const Header = () => {
               <Info className="h-4 w-4" />
               <AlertTitle>Atenção!</AlertTitle>
               <AlertDescription>
-                Todas as imagens aqui são pegas de {" "}
+                Todas as imagens aqui são pegas de{" "}
                 <a
                   href="https://prompthero.com"
                   target="_blank"

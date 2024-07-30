@@ -78,14 +78,14 @@ export default function App() {
   };
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="flex flex-col gap-2 min-h-screen">
       <Header />
       <FormImage submit={handleFormSubmit} />
       {uploading && "Enviando..."}
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
         <Masonry
-          className="p-4"
+          className="screen"
           items={photos}
           config={{
             columns: [1, 2, 3, 4, 5],

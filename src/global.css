@@ -46,6 +46,14 @@
   }
 }
 
+.grid-responsive {
+  @apply grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5;
+}
+
+.screen {
+  @apply max-w-screen-lg mx-auto px-2;
+}
+
 /* Branco: #F1F1F1, Preto: #0A0A0A */
 
 /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
