@@ -7,19 +7,13 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
@@ -38,14 +32,6 @@ export default function FormImage({ submit }: FormImageProps) {
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle className="border-transparent">
-              Nova Imagem
-            </DialogTitle>
-            <DialogDescription>
-              Faça um upload de uma imagem de extensão: jpg, png e jpeg.
-            </DialogDescription>
-          </DialogHeader>
           <ProfileForm submit={submit} />
         </DialogContent>
       </Dialog>
@@ -60,12 +46,6 @@ export default function FormImage({ submit }: FormImageProps) {
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle className="border-transparent">Nova Imagem</DrawerTitle>
-          <DrawerDescription>
-            Faça um upload de uma imagem de extensão: jpg, png e jpeg.
-          </DrawerDescription>
-        </DrawerHeader>
         <div className="p-4 pt-0">
           <ProfileForm submit={submit} />
         </div>
@@ -90,11 +70,25 @@ function ProfileForm({ submit }: FormImageProps) {
       onSubmit={submit}
       className={cn("grid items-start gap-4")}
     >
-      <div className="grid gap-2">
-        <Input id="image" name="image" type="file" className="p-6 border-dashed border-2" />
-      </div>
+      <label
+        htmlFor="image"
+        className="p-6 border-dashed border-2 rounded place-content-center"
+      >
+        <div className="flex flex-col justify-center items-center gap-2 group">
+          <figure className="relative">
+            <img src="/img.svg" alt="Placeholder Image" className="size-16 absolute group-hover:origin-bottom group-hover:-rotate-12 group-hover:-translate-x-4 group-hover:translate-y-2 transition ease-in-out" />
+            <img src="/img.svg" alt="Placeholder Image" className="size-16 absolute" />
+            <img src="/img.svg" alt="Placeholder Image" className="size-16" />
+          </figure>
+          <h3 className="text-lg font-medium">Nova Imagem</h3>
+          <p className="text-sm text-primary/50">
+            Faça um upload de uma imagem de extensão: jpg, png e jpeg.
+          </p>
+        </div>
+        <Input id="image" name="image" type="file" className="hidden" />
+      </label>
       <DialogClose asChild>
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">Confirmar</Button>
       </DialogClose>
     </form>
   );
