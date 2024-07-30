@@ -98,7 +98,6 @@ export default function App() {
               src={item.url}
               alt={item.name}
               name={item.name}
-              type={item.type}
               deleteImage={() => {
                 handleExclusion(item.name);
               }}
