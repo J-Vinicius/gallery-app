@@ -11,7 +11,7 @@ export const getAll = async () => {
 
   for (let i in photoList.items) {
     let photoUrl = await getDownloadURL(photoList.items[i]);
-    list.push({ name: photoList.items[i].name, url: photoUrl });
+    list.push({ name: photoList.items[i].name, url: photoUrl, type: photoList.items[i].name.split(".")[1] });
   }
 
   return list;

@@ -1,4 +1,3 @@
-import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui/button";
 
 import {
@@ -29,7 +28,6 @@ export const Header = () => {
             </SheetHeader>
           </SheetContent>
         </Sheet>
-        <ModeToggle />
       </div>
     </header>
   );

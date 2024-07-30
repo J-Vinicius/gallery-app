@@ -1,5 +1,4 @@
 /* eslint-disable prefer-const */
-import { ThemeProvider } from "@/components/theme-provider";
 import * as Photos from "@/services/photos";
 import { useState, useEffect, FormEvent } from "react";
 import { Header } from "./components/Header";
@@ -79,39 +78,38 @@ export default function App() {
   };
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <main className="flex flex-col min-h-screen">
-        <Header />
-        <FormImage submit={handleFormSubmit} />
-        {uploading && "Enviando..."}
-        {loading && <SkeletonCard />}
-        {!loading && photos.length > 0 && (
-          <Masonry
-            className="p-2"
-            items={photos}
-            config={{
-              columns: [2, 3, 4, 5],
-              gap: [12, 12, 12, 12],
-              media: [420, 640, 768, 1024],
-            }}
-            render={(item: Photo, i: number) => (
-              <ImageCard
-                key={i}
-                src={item.url}
-                alt={item.name}
-                name={item.name}
-                deleteImage={() => {
-                  handleExclusion(item.name);
-                }}
-              />
-            )}
-          />
-        )}
-        {!loading && photos.length === 0 && (
-          <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
-        )}
-        <Toaster />
-      </main>
-    </ThemeProvider>
+    <main className="flex flex-col min-h-screen">
+      <Header />
+      <FormImage submit={handleFormSubmit} />
+      {uploading && "Enviando..."}
+      {loading && <SkeletonCard />}
+      {!loading && photos.length > 0 && (
+        <Masonry
+          className="p-2"
+          items={photos}
+          config={{
+            columns: [2, 3, 4, 5],
+            gap: [12, 12, 12, 12],
+            media: [420, 640, 768, 1024],
+          }}
+          render={(item: Photo, i: number) => (
+            <ImageCard
+              key={i}
+              src={item.url}
+              alt={item.name}
+              name={item.name}
+              type={item.type}
+              deleteImage={() => {
+                handleExclusion(item.name);
+              }}
+            />
+          )}
+        />
+      )}
+      {!loading && photos.length === 0 && (
+        <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
+      )}
+      <Toaster />
+    </main>
   );
 }
