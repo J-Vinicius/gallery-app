@@ -5,7 +5,7 @@ export function SkeletonCard() {
 
   return (
     <div className="h-[85vh] w-full screen">
-      <section className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <section className="grid-responsive">
         {items.map((item) => (
           <Skeleton key={item} className="aspect-square" />
         ))}

@@ -15,12 +15,10 @@ const downloadImage = (image: string) => {
 
 export const ImageCard = ({ src, alt, name, deleteImage }: ImageProps) => {
   return (
-    <figure className="relative group bg-foreground p-4 md:p-6 space-y-2">
-      <img src={src} alt={alt} className="object-cover w-full" />
-      <figcaption className="text-card">
-        <p className="line-clamp-2">{name}</p>
-      </figcaption>
-      <div className="hidden group-hover:flex absolute inset-0 text-foreground">
+    <figure className="relative group overflow-hidden rounded aspect-square">
+      <img src={src} alt={alt} className="object-cover" />
+      <small className="px-1 py-0.5 bg-accent/75 rounded absolute bottom-2 left-2">{name.split(".")[1]}</small>
+      <figcaption className="hidden group-hover:flex absolute inset-0 text-foreground">
         <Button
           size="icon"
           variant="secondary"
@@ -37,7 +35,7 @@ export const ImageCard = ({ src, alt, name, deleteImage }: ImageProps) => {
         >
           <Download />
         </Button>
-      </div>
+      </figcaption>
     </figure>
   );
 };

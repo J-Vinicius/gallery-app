@@ -24,13 +24,15 @@ export default function FormImage({ submit }: FormImageProps) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  // Configurações de Css em comum
+  const cssTrigger =
+    "flex items-center justify-center border-2 text-secondary rounded border-dashed hover:bg-card-foreground/5";
+
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild className="fixed right-4 bottom-4 z-50">
-          <Button variant="default" size="circle">
-            <Plus />
-          </Button>
+        <DialogTrigger className={cssTrigger}>
+          <Plus size={24} />
         </DialogTrigger>
         <DialogContent className="sm:max-w-lg">
           <ProfileForm submit={submit} />
@@ -41,10 +43,8 @@ export default function FormImage({ submit }: FormImageProps) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild className="fixed right-4 bottom-4 z-50">
-        <Button variant="default" size="circle">
-          <Plus />
-        </Button>
+      <DrawerTrigger className={cssTrigger}>
+        <Plus size={24} />
       </DrawerTrigger>
       <DrawerContent>
         <div className="p-4 pt-0">

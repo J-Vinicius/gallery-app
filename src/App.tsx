@@ -2,7 +2,6 @@
 import * as Photos from "@/services/photos";
 import { useState, useEffect, FormEvent } from "react";
 import { Header } from "./components/Header";
-import { Masonry } from "react-plock";
 import { Photo } from "./types/photo";
 import { SkeletonCard } from "./components/Skeleton";
 import { ImageCard } from "./components/Image";
@@ -80,30 +79,24 @@ export default function App() {
   return (
     <main className="flex flex-col gap-2 min-h-screen">
       <Header />
-      <FormImage submit={handleFormSubmit} />
+
       {uploading && "Enviando..."}
       {loading && <SkeletonCard />}
       {!loading && photos.length > 0 && (
-        <Masonry
-          className="screen"
-          items={photos}
-          config={{
-            columns: [1, 2, 3, 4, 5],
-            gap: [12, 12, 12, 12, 12],
-            media: [420, 540, 640, 840, 1024],
-          }}
-          render={(item: Photo, i: number) => (
+        <section className="grid-responsive screen">
+          {photos.map((photo) => (
             <ImageCard
-              key={i}
-              src={item.url}
-              alt={item.name}
-              name={item.name}
+              key={photo.name}
+              src={photo.url}
+              alt={photo.name}
+              name={photo.name}
               deleteImage={() => {
-                handleExclusion(item.name);
+                handleExclusion(photo.name);
               }}
             />
-          )}
-        />
+          ))}
+          <FormImage submit={handleFormSubmit} />
+        </section>
       )}
       {!loading && photos.length === 0 && (
         <h2 className="text-center border-b-0">Nenhuma imagem!</h2>
