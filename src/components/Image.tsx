@@ -22,10 +22,15 @@ export const ImageCard = ({
   deleteImage,
 }: ImageProps) => {
   return (
-    <figure className="relative group">
-      <small className="absolute top-2 right-2 bg-accent/50 py-0.5 px-1 rounded font-mono">{type}</small>
-      <img src={src} alt={alt} className="rounded object-cover w-full" />
-      <figcaption className="hidden group-hover:flex absolute inset-0 text-foreground bg-background/50">
+    <figure className="relative group bg-foreground p-6 space-y-2">
+      <img src={src} alt={alt} className="object-cover w-full" />
+      <figcaption className="text-card">
+        <p className="line-clamp-2">{name}</p>
+        <small className="bg-accent/50 py-0.5 px-1 rounded font-mono">
+          {type}
+        </small>
+      </figcaption>
+      <div className="hidden group-hover:flex absolute inset-0 text-foreground">
         <Button
           size="icon"
           variant="ghost"
@@ -42,8 +47,7 @@ export const ImageCard = ({
         >
           <Download />
         </Button>
-        <p className="absolute inset-x-4 bottom-4">{name}</p>
-      </figcaption>
+      </div>
     </figure>
   );
 };
