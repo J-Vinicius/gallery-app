@@ -6,7 +6,7 @@ Galeria de Imagens com Firebase. Prática realizada a partir [Galeria de Fotos e
 
 Fazer upload de imagens para a Galeria.
 
-![Page](public/screencapture-gallery-vite-typescript-firebase-app-vercel-app-2024-03-26-16_36_10.png)
+![Page](https://github.com/user-attachments/assets/6e8457cc-8afa-40d3-abb1-0983f3c78ff6)
 
 ## ✔️ Técnicas e tecnologias utilizadas:
 
